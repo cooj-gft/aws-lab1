@@ -1,5 +1,5 @@
 resource "aws_instance" "ec2_lab1" {
-  ami = "ami-0b09ffb6d8b58ca91"
+  ami           = data.aws_ami.amazon_linux.id
   instance_type = "t3.micro" 
   subnet_id     = var.subnet_id
   vpc_security_group_ids = [var.security_group_id]
@@ -16,5 +16,30 @@ resource "aws_instance" "ec2_lab1" {
 
   tags = {
     Name = "lab1-ec2"
+  }
+}
+
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["*2023 kernel-6.1"]
+  }
+
+  filter {
+    name = "image_owner_alias"
+    values = ["amazon"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
   }
 }
