@@ -1,3 +1,28 @@
+
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-x86_64"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+   filter {
+    name   = "state"
+    values = ["available"]
+  }
+}
+
 resource "aws_instance" "ec2_lab1" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = "t3.micro" 
@@ -16,25 +41,5 @@ resource "aws_instance" "ec2_lab1" {
 
   tags = {
     Name = "lab1-ec2"
-  }
-}
-
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["al2023-ami-*-x86_64"]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
   }
 }
