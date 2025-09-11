@@ -1,6 +1,6 @@
 resource "aws_instance" "ec2_lab1" {
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t4g.nano" # Cambia a t3.micro si tu cuenta no soporta Graviton
+  ami = "ami-0b09ffb6d8b58ca91"
+  instance_type = "t3.micro" 
   subnet_id     = var.subnet_id
   vpc_security_group_ids = [var.security_group_id]
 
@@ -16,14 +16,5 @@ resource "aws_instance" "ec2_lab1" {
 
   tags = {
     Name = "lab1-ec2"
-  }
-}
-
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
-  filter {
-    name   = "name"
-    values = ["al2023-ami-*-x86_64"]
   }
 }
