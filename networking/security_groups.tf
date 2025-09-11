@@ -9,7 +9,7 @@ resource "aws_security_group" "rds_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["YOUR_IP/32"]  # ⚠️ Reemplaza con tu IP pública
+    cidr_blocks = ["0.0.0.0/32"]  # ⚠️ Reemplaza con tu IP pública
   }
 
   # Reglas de salida (outbound)
