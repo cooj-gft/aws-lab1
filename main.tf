@@ -15,6 +15,6 @@ module "rds" {
 
 module "ec2" {
   source = "./ec2"
-  subnet_id = module.networking.private_subnets[0]
-  security_group_id = module.networking.security_group_id
+  subnet_id = module.networking.private_subnet_ids[0]
+  security_group_id = module.networking.db_sg_id
 }
