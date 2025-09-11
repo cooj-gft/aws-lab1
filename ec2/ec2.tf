@@ -29,11 +29,6 @@ data "aws_ami" "amazon_linux" {
   }
 
   filter {
-    name = "image_owner_alias"
-    values = ["amazon"]
-  }
-
-  filter {
     name   = "architecture"
     values = ["x86_64"]
   }
