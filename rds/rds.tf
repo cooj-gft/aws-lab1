@@ -1,4 +1,4 @@
-resource "aws_db_instance" "mysql" {
+resource "aws_db_instance" "rds_lab1_camilo" {
   allocated_storage    = 20                       # 20 GB mínimo
   engine               = "mysql"
   engine_version       = "8.0"                    # versión MySQL
@@ -16,6 +16,6 @@ resource "aws_db_instance" "mysql" {
   multi_az             = false  # no usamos multi-AZ para ahorrar costo
 
   tags = {
-    Name = "rds-mysql-instance"
+    Name = "rds_lab1_camilo"
   }
 }

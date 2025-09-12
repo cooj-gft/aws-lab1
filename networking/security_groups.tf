@@ -1,7 +1,7 @@
-resource "aws_security_group" "rds_sg" {
-  name        = "rds-mysql-sg"
+resource "aws_security_group" "secgr_lab1_camilo" {
+  name        = "secgr_lab1_camilo"
   description = "Allow MySQL inbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.vpc_lab1_camilo.id
 
   # Reglas de entrada (inbound)
   ingress {
@@ -29,6 +29,6 @@ resource "aws_security_group" "rds_sg" {
   }
 
   tags = {
-    Name = "rds-mysql-sg"
+    Name = "secgr_lab1_camilo"
   }
 }

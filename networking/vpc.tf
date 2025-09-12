@@ -1,9 +1,9 @@
-resource "aws_vpc" "main" {
+resource "aws_vpc" "vpc_lab1_camilo" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_support   = true
   enable_dns_hostnames = true
 
   tags = {
-    Name = "rds-vpc"
+    Name = "vpc-lab1-camilo"
   }
 }

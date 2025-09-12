@@ -24,7 +24,7 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-resource "aws_instance" "ec2_lab1" {
+resource "aws_instance" "ec2_lab1_camilo" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = "t3.micro" 
   subnet_id     = var.subnet_id
@@ -41,6 +41,6 @@ resource "aws_instance" "ec2_lab1" {
   EOF
 
   tags = {
-    Name = "lab1-ec2"
+    Name = "lab1-ec2-camilo"
   }
 }
