@@ -5,7 +5,8 @@ output "vpc_id" {
 
 output "private_subnet_ids" {
   description = "The IDs of the private subnets"
-  value       = [aws_subnet.snpriv_lab1_camilo.id]
+  value       = [aws_subnet.snpriv_lab1_camilo.id, aws_subnet.snpriv2_lab1_camilo.id]
+
 }
 
 output "db_subnet_group" {
