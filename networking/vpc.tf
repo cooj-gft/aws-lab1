@@ -6,4 +6,6 @@ resource "aws_vpc" "vpc_lab1_camilo" {
   tags = {
     Name = "vpc-lab1-camilo"
   }
+
+
 }
